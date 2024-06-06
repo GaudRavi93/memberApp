@@ -9,8 +9,8 @@ const config: CapacitorConfig = {
   },
   plugins: {
     LiveUpdates: {
-      appId: '7cd26613',
-      channel: 'Develop',
+      appId: 'a9f26d71',
+      channel: 'Production',
       autoUpdateMethod: 'background',
       maxVersions: 3
     }
