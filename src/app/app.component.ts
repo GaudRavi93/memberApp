@@ -24,6 +24,7 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  private isSyncInProgress = false;
 
   constructor(
     private chatClientService: ChatClientService,
@@ -81,10 +82,17 @@ export class AppComponent implements OnInit {
   }
 
   async performLiveUpdate() {
+    if (this.isSyncInProgress) {
+      console.log('Sync already in progress. Please wait.');
+      return;
+    }
+
+    this.isSyncInProgress = true;
+
     try {
       // Perform the live update sync
       const resultSync = await LiveUpdates.sync();
-  
+
       // Handle the result of the sync
       if (resultSync.activeApplicationPathChanged) {
         console.log('Application path has changed. A reload is required.');
@@ -119,7 +127,52 @@ export class AppComponent implements OnInit {
       }
     } catch (error) {
       console.error('Live Update failed:', error);
+    } finally {
+      this.isSyncInProgress = false;
     }
   }
+
+  // async performLiveUpdate() {
+  //   try {
+  //     LiveUpdates.
+  //     // Perform the live update sync
+  //     const resultSync = await LiveUpdates.sync();
+  
+  //     // Handle the result of the sync
+  //     if (resultSync.activeApplicationPathChanged) {
+  //       console.log('Application path has changed. A reload is required.');
+  //       // Optionally, reload the application
+  //       // window.location.reload();
+  //       await LocalNotifications.schedule({
+  //         notifications: [
+  //           {
+  //             title: 'A reload is required.',
+  //             body: 'Application path has changed',
+  //             id: 1,
+  //             schedule: { at: new Date(Date.now() + 1000 * 5) },
+  //             actionTypeId: '',
+  //             extra: null,
+  //           },
+  //         ],
+  //       });
+  //     } else {
+  //       await LocalNotifications.schedule({
+  //         notifications: [
+  //           {
+  //             title: 'No reload needed.',
+  //             body: 'Application path has not changed',
+  //             id: 1,
+  //             schedule: { at: new Date(Date.now() + 1000 * 5) },
+  //             actionTypeId: '',
+  //             extra: null,
+  //           },
+  //         ],
+  //       });
+  //       console.log('Application path has not changed. No reload needed.');
+  //     }
+  //   } catch (error) {
+  //     console.error('Live Update failed:', error);
+  //   }
+  // }
 
 }
