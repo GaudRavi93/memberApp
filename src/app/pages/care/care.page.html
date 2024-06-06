@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Get Care</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="visit-form">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="medkit-outline"></ion-icon>
+        Talk to a doctor right now
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      You can talk to a doctor right now. Click the button below to start a chat.
+      It's completely free. You can talk on chat, phone or video 24/7.
+
+    <ion-input type="text" placeholder="Tell us what you'd like to discuss with a doctor" />
+
+    <ion-button shape="round" color="dark">Start your visit now</ion-button>
+    </ion-card-content>          
+  </ion-card>
+</div>
+
+<div class="get-help-squares">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="square-card">
+          <ion-card-content>
+            Get help finding a Primary Care Doctor
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="square-card">
+          <ion-card-content>
+            Ease your joint and muscle pain
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      <ion-icon name="star-outline"></ion-icon>
+      Ressources for you
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div class="swiper-container-ressources">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let ressource of ressources">
+          <ion-card class="ressource-card">
+            <div class="card-content">
+              <div>
+                <h2>{{ ressource.title }}</h2>
+              </div>
+            </div>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>
+
+
+
+  <!-- <ion-segment [(ngModel)]="selectedView">
+    <ion-segment-button value="todo">
+      To do
+    </ion-segment-button>
+    <ion-segment-button value="completed">
+      Completed
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectedView === 'todo'">
+
+  </div>
+
+  <div *ngIf="selectedView === 'completed'">
+
+  </div> -->
+</ion-content>

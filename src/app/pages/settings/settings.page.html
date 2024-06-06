@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">My settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-label>If you want to log out, click the button below</ion-label>
+    <ion-button (click)="logout()" expand="block">Logout</ion-button>
+  </ion-item>
+</ion-content>

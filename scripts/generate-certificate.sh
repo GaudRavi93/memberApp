@@ -1,0 +1,1 @@
+keytool -genkey -v keystore offshift.keystore -alias offshift -keyalg RSA -keysize 2048 -validity 10000 -storetype jks

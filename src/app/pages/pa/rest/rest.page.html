@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/home" text="Quit"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Rest</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="!isPaused" (click)="pauseCountdown()">
+        <ion-icon slot="icon-only" name="pause" ></ion-icon>
+      </ion-button>
+      <ion-button (click)="pauseCountdown()" *ngIf="isPaused">
+        <ion-icon slot="icon-only" name="play"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Countdown -->
+  <div class="countdown-container">
+    <h2>You can now rest</h2>
+    <div id="countdown-number">{{countdown}}</div>
+    <ion-progress-bar [value]="progressValue"></ion-progress-bar>
+  </div>
+
+
+  <div class="button-container">
+    <ion-button class="full-width-button" color="dark" (click)="goBack()">Back</ion-button>
+    <ion-button class="full-width-button" (click)="restFinished()">Skip</ion-button>
+  </div>
+
+</ion-content>

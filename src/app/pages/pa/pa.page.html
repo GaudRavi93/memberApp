@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ (workout$ | async)?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- DURATION SECTION-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ (workout$ | async)?.default_duration }} seconds</ion-card-title>
+      <ion-card-subtitle>Duration</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- DESCRIPTION SECTION-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Description</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{(workout$ | async)?.description}}
+    </ion-card-content>
+  </ion-card>
+
+  <!-- EXERCICES SWIPER SECTION-->
+  <div class="swiper-container-exercices">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let step of (workout$ | async)?.steps">
+        <ion-card class="exercice-card">
+          <div class="card-content">
+            <div>
+              <h2>{{ step.exercise?.name }}</h2>
+              <p>{{ step.exercise?.description }}</p>
+            </div>
+          </div>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- BUTTONS SECTION-->
+  <ion-button expand="full" (click)="startWorkout()">Start Now</ion-button>
+
+</ion-content>

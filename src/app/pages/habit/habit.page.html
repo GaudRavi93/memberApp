@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/home" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios"> {{habit_details?.name}} </ion-title>
+    <ion-label slot="end">
+      {{ habit_details?.frequency.hours }} : {{ habit_details?.frequency.minutes }}
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="content-text ion-padding-bottom">{{ habit_details?.description }}</div>
+  <ion-row>
+    <ion-col size="6">
+      <div class="long-streak">
+        <div class="number">{{habit_details?.longestStreak}} </div>
+        <div class="text">Longest Streak</div>
+      </div>
+    </ion-col>
+    <ion-col size="6">
+      <div class="current-streak">
+        <div class="number">{{habit_details?.currentStreak}}</div>
+        <div class="text">Current Streak</div>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-padding-bottom">
+    <ion-col size="12">
+      <div class="compliance-progress">
+        <div class="progress-bar-area">
+          <circle-progress [percent]="habit_details?.complianceAllTime" [radius]="15" [outerStrokeWidth]="5"
+            [space]="-4" [showTitle]="false" [showSubtitle]="false" [showUnits]="false" [innerStrokeWidth]="5"
+            [outerStrokeColor]="habit_details?.complianceAllTime > 80 ? '#E74C3C' : (habit_details?.complianceAllTime <= 80 && habit_details?.complianceAllTime > 45) ? '#4882c2' : '#009700'"
+            [innerStrokeColor]="habit_details?.complianceAllTime > 80 ? '#F5B7B1' : (habit_details?.complianceAllTime <= 80 && habit_details?.complianceAllTime > 45) ? '#ADD8E6' : '#ABEBC6'"></circle-progress>
+        </div>
+        <p class="progress-text">{{ habit_details?.complianceAllTime }}% Compliance - All time </p>
+      </div>
+    </ion-col>
+    <ion-col size="12">
+      <div class="compliance-progress">
+        <div class="progress-bar-area">
+          <circle-progress [percent]="habit_details?.compliance7days" [radius]="15" [outerStrokeWidth]="5" [space]="-4"
+            [showTitle]="false" [showSubtitle]="false" [showUnits]="false" [innerStrokeWidth]="5"
+            [outerStrokeColor]="habit_details?.compliance7days > 80 ? '#E74C3C' : (habit_details?.compliance7days <= 80 && habit_details?.compliance7days > 45) ? '#4882c2' : '#009700'"
+            [innerStrokeColor]="habit_details?.compliance7days > 80 ? '#F5B7B1' : (habit_details?.compliance7days <= 80 && habit_details?.compliance7days > 45) ? '#ADD8E6' : '#ABEBC6'"></circle-progress>
+        </div>
+        <p class="progress-text">{{ habit_details?.compliance7days }}% Compliance - Last 7 days</p>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <div class="calendar-button">
+    <ion-button (click)="changeMonth(-1)">
+      <ion-icon slot="icon-only" name="caret-back-outline"></ion-icon>
+    </ion-button>
+    <ion-label>{{ currentDate | date: 'MMMM YYYY' }}</ion-label>
+    <ion-button (click)="changeMonth(1)">
+      <ion-icon slot="icon-only" name="caret-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
+  <calendar #myCalendar [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" [step]="calendar.step"
+    (onTitleChanged)="onViewTitleChanged($event)" [eventSource]="eventSource"
+    [monthviewDisplayEventTemplate]="taskTemplate">
+  </calendar>
+
+  <ng-template #taskTemplate let-view="view" let-row="row" let-col="col">
+    <div class="number">{{view.dates[row*7+col].label}}</div>
+    <div class="taskWrapper">
+      <div [ngClass]="getEventStatusClass(view.dates[row*7+col].events)"></div>
+    </div>
+  </ng-template>
+</ion-content>

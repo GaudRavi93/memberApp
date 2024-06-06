@@ -1,0 +1,19 @@
+.stats-container,
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.streaks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.streaks-container ion-icon {
+    margin: 0 5px;
+}

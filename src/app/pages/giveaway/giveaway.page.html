@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Giveaway</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Giveaway</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="countdown ion-text-center">
+    <p>{{ days }} days {{ hours }} hours {{ minutes }} minutes {{ seconds }} seconds</p>
+    <p>Until this giveaway ends</p>
+  </div>
+
+  <ion-card>
+    <img src="assets/placeholder/giveway.png" />
+    <ion-card-header>
+      <ion-card-title>Reward</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Each activity equals one entry in the contest. Here are all the possible activities to earn points:</p>
+      <ul>
+        <li>Activity 1</li>
+        <li>Activity 2</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

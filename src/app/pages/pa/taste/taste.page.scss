@@ -1,0 +1,30 @@
+ion-card {
+    position: absolute;
+    width: calc(100% - 40px);
+    height: auto;
+    margin: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ion-card-title {
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-title {
+    font-size: 2em; 
+    font-weight: bold;
+    margin: 20px 0; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 600px;
+}

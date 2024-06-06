@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">calendar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <calendar
+  [calendarMode]="'month'"
+  [startHour]="8"
+  [endHour]="20">
+</calendar>
+
+</ion-content>

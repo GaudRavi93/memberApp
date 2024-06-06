@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Stats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Stats</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div class="stats-container">
+    <h1>Workout completed.</h1>
+    <h1>You have earned {{ entries }} entries.</h1>
+    <h1>You have completed {{ streaks }} streaks.</h1>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Streaks</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="streaks-container">
+        <ion-icon *ngFor="let day of days" name="{{ day.completed ? 'ellipse' : 'ellipse-outline' }}" style="font-size: 2em;"></ion-icon>
+      </div>
+    <br>
+      <h1 class="ion-text-center">47th Workout Complete !</h1>
+    </ion-card-content>
+  </ion-card>
+
+
+  <div class="button-container">
+    <ion-button (click)="continue()">Continue</ion-button>
+  </div>
+</ion-content>

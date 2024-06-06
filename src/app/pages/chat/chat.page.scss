@@ -1,0 +1,88 @@
+ion-header {
+    box-shadow: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-conversation {
+    height: 45%;
+    margin-top: 30px;
+    background-color: #e0f0ff;
+    color: #000;
+    margin-bottom: 10px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
+    &:first-child {
+        background-color: #e9fee8;
+        margin-top: 20px;
+
+        ion-button {
+            --background-activated: #1bbf41 !important;
+            --background-focused: #0d9b2e !important;
+            --background-hover: #1ecf48 !important;
+            --background-activated-opacity: 1;
+            --background-focused-opacity: 1;
+            --background-hover-opacity: 1;
+            --background: #19af3c !important;
+        }
+    }
+
+    .card-inner {
+        height: 100%;
+        padding: 10px;
+    }
+
+    .main-name-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+
+        .main-heading {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-content {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+
+        .profile-image-wrapper {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: -30px;
+
+            .profile-inner {
+                position: relative;
+
+                .profile-image {
+                    border-radius: 80px;
+                    overflow: hidden;
+                }
+
+                .count {
+                    position: absolute;
+                    right: -3px;
+                    top: 4px;
+                    background-color: red;
+                    color: #fff;
+                    height: 24px;
+                    width: 24px;
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50px;
+                }
+            }
+        }
+    }
+}

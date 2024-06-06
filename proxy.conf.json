@@ -1,0 +1,47 @@
+{
+    "/createWorkoutSession": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/updateWorkoutSession": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/retrieveWorkout": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/retrieveExercise": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/getTasks": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/getStreamUserToken": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/retrieveTasksByUser": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/setTaskCompleted": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/retrieveHabit": {
+        "target": "https://us-central1-development-35385.cloudfunctions.net",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

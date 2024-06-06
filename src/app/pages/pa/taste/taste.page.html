@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Your taste</ion-title>
+    <ion-buttons slot="end">
+      <ion-button defaultHref="/app/home">Skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-progress-bar type="determinate" [value]="progress"></ion-progress-bar>
+  <h1 class="ion-text-center custom-title">We are learning your taste...</h1>
+
+  <ion-card *ngFor="let e of exercises">
+    <img [src]="e.image">
+    <ion-card-header>
+      <ion-card-title>{{ e.title }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+</ion-content>

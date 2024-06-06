@@ -1,0 +1,103 @@
+// PROFILE WIDGET SECTION
+ ion-avatar {
+    margin-left: 15px;
+    padding: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 50px;
+    width: 50px;
+  }
+
+#entries-button {
+  font-size: smaller;
+}
+
+// TASK SECTION
+.task-list ion-card-content {
+    padding: 0px;
+  
+}
+.completed ion-label,
+ion-item.checked ion-label {
+  text-decoration: line-through;
+  animation: color-change 2s forwards;
+}
+
+.completed ion-item.checked {
+  animation: color-change 2s forwards;
+}
+
+@keyframes color-change {
+  0% {
+    color: black;
+  }
+  100% {
+    color: lightgrey;
+  }
+}
+
+.task-list ion-badge {
+  margin-right: 10px;
+  background-color: lightgrey;
+}
+
+// CHALLENGE SECTION
+.challenge-container {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.challenge-card {
+  height: 125px;
+  flex: 0 0 auto;
+  position: relative;
+  background-image: url('/assets/placeholder/challenge.jpg');
+  background-size: cover;
+  color: white;
+
+  .card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .completed-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+}
+
+// RECOMMENDATION SECTION
+
+.recommendation-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+
+  img {
+    align-self: flex-start;
+  }
+
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    background-color: rgb(255, 206, 255);
+  }
+}
+
+
+// Get help section
+#get-help-section .logo {
+  padding: 10px;
+  border-radius: 20%;
+  color: #3578F5;
+  background-color: #3578f56b;
+}
+

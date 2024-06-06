@@ -1,0 +1,61 @@
+.weekdays {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .weekdays ion-badge {
+    flex: 1 0 auto;
+    margin: 0.5em;
+    font-size: larger;
+    text-align: center;
+    background-color: grey;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .weekdays ion-badge.completed {
+    background-color: orange;
+  }
+
+  .day {
+    text-align: center;
+  }
+  
+  .day ion-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .day span {
+    display: block;
+  }
+
+
+
+  .emoji-icon {
+    font-size: 24px; 
+    margin-right: 10px; 
+  }
+
+  .progress-container {
+    position: relative;
+    top: 15px;
+  }
+  
+  .progress-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    color: grey; 
+    font-weight: bold; 
+  }
+
+  #streak {
+    text-align: center;
+  }
+

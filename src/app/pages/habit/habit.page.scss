@@ -1,0 +1,53 @@
+.content-text {
+    font-size: 14px;
+}
+
+.long-streak,
+.current-streak {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .number {
+        font-size: 30px;
+        font-weight: 700;
+        color: #2699fb !important;
+    }
+
+    .text {
+        font-size: 14px;
+        font-weight: 700;
+        color: #2699fb !important;
+    }
+}
+
+.compliance-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .progress-bar-area {
+        width: 40px;
+    }
+
+    .progress-text {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0;
+        color: #2699fb !important;
+    }
+}
+
+.calendar-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    ion-button {
+        font-size: 10px;
+
+        button {
+            --border-radius: 15px !important;
+        }
+    }
+}

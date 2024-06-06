@@ -1,0 +1,236 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Stream chat CSS */
+@import "~stream-chat-angular/src/assets/styles/v2/css/index.css";
+
+/* Ionic Calendar CSS */
+@import 'swiper/scss';
+
+
+// chat conversation styling
+.conversation-screen {
+    .str-chat__message.str-chat__message--me {
+        margin-bottom: 20px;
+
+        .str-chat__message-inner {
+            position: relative;
+
+            .str-chat__message-reactions-host {
+                position: absolute;
+                z-index: 1;
+                top: -14px;
+                right: 7px;
+
+                .str-chat__message-reaction {
+                    padding: 1px 3px;
+                }
+            }
+        }
+    }
+
+    .str-chat__message.str-chat__message--other {
+        margin-bottom: 20px;
+
+        .str-chat__message-inner {
+            position: relative;
+
+            .str-chat__message-reactions-host {
+                position: absolute;
+                z-index: 1;
+                top: -14px;
+                left: 7px;
+
+                .str-chat__message-reaction {
+                    padding: 1px 3px;
+                }
+            }
+        }
+
+        .str-chat__message-simple-name {
+            display: none;
+        }
+    }
+
+    .str-chat__message-data {
+        flex-direction: row-reverse;
+    }
+
+    .str-chat__date-separator {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+        .str-chat__date-separator-line {
+            display: none;
+        }
+
+        .str-chat__date-separator-date {
+            margin: 0;
+            padding: 2px 10px;
+            font-size: 12px;
+            background-color: #eee;
+            border-radius: 30px;
+        }
+    }
+
+    .str-chat__message-input-inner.str-chat-angular__message-input-inner {
+        background-color: #e0f0ff;
+        border: 1px solid #badbfa;
+        border-radius: 50px;
+
+        .str-chat__message-textarea-container {
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    .str-chat__message-input .str-chat__send-button svg {
+        height: 24px;
+    }
+
+    .str-chat__message-input .str-chat__send-button svg path {
+        fill: #005fff;
+    }
+
+    .str-chat__message-input .str-chat__file-input-container svg {
+        background: #005fff;
+        border-radius: 30px;
+        margin-left: 10px;
+    }
+
+    .str-chat__message-input .str-chat__file-input-container svg path {
+        fill: #fff;
+    }
+
+    .str-chat__list {
+        background: transparent;
+    }
+
+    .str-chat__container {
+        background-color: #fffffff0;
+    }
+}
+
+.monthview-container {
+    table {
+        background: #bce0fd !important;
+        border: 1px solid #bce0fd !important;
+
+        tr {
+            th {
+                background: #fff;
+                border: 15px solid #bce0fd !important;
+                border-bottom: 1px solid #bce0fd !important;
+                padding: 6px !important;
+                color: #2699fb !important;
+                font-weight: 700 !important;
+            }
+
+            td {
+                background: #fff;
+                border: 15px solid #bce0fd !important;
+                border-bottom: 15px solid #bce0fd !important;
+                padding: 6px !important;
+            }
+        }
+    }
+
+    .monthview-selected {
+        background-color: #2699fb !important;
+    }
+
+    .number {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.monthview-primary-with-event {
+    color: #000 !important;
+    background-color: #fff !important;
+    position: relative;
+
+    .taskWrapper {
+        position: absolute;
+        right: 6px;
+        top: 3px;
+
+        .completed-task {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: #24cf4ad3;
+            border: 1px solid #24cf4ad3;
+        }
+
+        .pending-task {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 1px solid #24cf4ad3;
+        }
+
+        .skipped-task {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+        }
+    }
+}
+
+ion-progress-bar {
+    height: 5px;
+    border-radius: 5px;
+    --progress-background: #000;
+    --buffer-background: #00000033;
+}
+
+// notify bar style
+.notify-bar {
+    position: relative;
+
+    .c-progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        ion-progress-bar {
+            height: 50px;
+            border-radius: 16px;
+            --progress-background: #0003;
+            --buffer-background: #00000033;
+        }
+    }
+}

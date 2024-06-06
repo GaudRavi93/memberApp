@@ -1,0 +1,118 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/home"></ion-back-button>
+    </ion-buttons>
+    <div class="center-content">
+      <ion-avatar>
+        <img src="{{ avatarUrl }}">
+      </ion-avatar>
+      <ion-label>{{ userName }}</ion-label>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button id="open-modal">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">My Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-label class="ion-text-right">{{ firstName }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-label class="ion-text-right">{{ lastName }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-label class="ion-text-right">{{ email }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Birth Date</ion-label>
+      <ion-label class="ion-text-right">{{ birthDate | date }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Height</ion-label>
+      <ion-label class="ion-text-right">{{ height }} cm</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sex</ion-label>
+      <ion-label class="ion-text-right">{{ sex }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+    <ion-item>
+    <ion-label>In-app messages</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Task Reminders</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Appointment/Calendar Event reminder</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>If you want to log out, click the button below</ion-label>
+    <ion-button (click)="logout()" expand="block">Logout</ion-button>
+  </ion-item>
+
+
+  <ion-modal trigger="open-modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title class="ion-text-center">Edit your profile</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input
+            label="Enter your name"
+            labelPlacement="stacked"
+            type="text"
+            placeholder="Your name"
+            [(ngModel)]="firstName"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Enter your last name"
+            labelPlacement="stacked"
+            type="text"
+            placeholder="Your last name"
+            [(ngModel)]="lastName"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Enter your email"
+            labelPlacement="stacked"
+            type="email"
+            placeholder="Your email"
+            [(ngModel)]="email"
+          ></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

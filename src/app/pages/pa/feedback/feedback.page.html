@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Congratulations !</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div class="difficulty-container">
+    <p>How difficult was this workout?</p>
+    <ion-range [(ngModel)]="difficulty" min="1" max="7" step="1" snaps="true"></ion-range>
+    <p>{{ getDifficultyLabel() }}</p>
+  </div>
+
+  <div class="button-container">
+    <ion-button (click)="continue()">Continue</ion-button>
+  </div>
+</ion-content>

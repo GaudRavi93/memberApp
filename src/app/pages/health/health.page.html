@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>This Week (8-14 Avr)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card color="orange">
+      <ion-card-header>
+          <ion-card-title>Physical Activity</ion-card-title>
+          
+        </ion-card-header>
+        <ion-card-content>
+        <p style="text-align: center;">Complete 3 sessions this week</p>
+          <ion-grid>
+              <ion-row>
+                  <ion-col size="2">
+                    <span class="emoji-icon">🎯</span>
+                  </ion-col>
+                  <ion-col size="8">
+                      <div class="progress-container">
+                        <ion-progress-bar value="0.0"></ion-progress-bar>
+                        <div class="progress-value">0/3</div>
+                      </div>
+                  </ion-col>
+                  <ion-col size="2">
+                    <span class="emoji-icon">🏆</span>
+                  </ion-col>
+              </ion-row>
+          </ion-grid>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card color="yellow">
+    <ion-card-header>
+      <ion-card-title>Nutritions Habits</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Eat a protein at every meal</p>
+      <div class="weekdays">
+        <div *ngFor="let day of ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']" class="day">
+          <span>{{day}}</span>
+          <ion-badge [ngClass]="{'completed': isCompleted(day)}">
+            <ion-icon *ngIf="isCompleted(day)" name="checkmark"></ion-icon>
+          </ion-badge>
+        </div>
+      </div>
+      <ion-grid id="streak">
+        <ion-row>
+          <ion-col>
+            <p>Current Streak : 1 day</p>
+          </ion-col>
+          <ion-col>
+            <p>Longest streak: 5 days</p>
+          </ion-col>
+          <ion-col>
+            <p>Goal for this week: 1/5</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="red">
+    <ion-card-header>
+      <ion-card-title>Medication</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Take your medication after breakfast</p>
+      <div class="weekdays">
+        <div *ngFor="let day of ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']" class="day">
+          <span>{{day}}</span>
+          <ion-badge [ngClass]="{'completed': isCompleted(day)}">
+            <ion-icon *ngIf="isCompleted(day)" name="checkmark"></ion-icon>
+          </ion-badge>
+        </div>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <p>Current Streak : 1 day</p>
+          </ion-col>
+          <ion-col>
+            <p>Longest streak: 5 days</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

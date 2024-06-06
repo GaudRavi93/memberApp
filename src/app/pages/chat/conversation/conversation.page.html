@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/chat" mode="md"></ion-back-button>
+    </ion-buttons>
+    <div class="profile-wrapper">
+      <img [src]="channelDetails.image" onerror="this.src='../../../assets/no_user.png'"
+        class="profile-image">
+      <div class="channel_name"> {{ channelDetails.name }} </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="conversation-screen">
+  <stream-channel>
+    <stream-message-list></stream-message-list>
+    <stream-notification-list></stream-notification-list>
+    <stream-message-input></stream-message-input>
+  </stream-channel>
+</ion-content>

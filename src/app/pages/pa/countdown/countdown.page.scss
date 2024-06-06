@@ -1,0 +1,12 @@
+ion-content {
+    position: relative; /* New */
+    height: 100%;
+}
+
+#countdown-number {
+    position: absolute; /* New */
+    top: 50%; /* New */
+    left: 50%; /* New */
+    transform: translate(-50%, -50%); /* New */
+    font-size: 48px; /* Adjust this value as needed */
+}

@@ -1,0 +1,31 @@
+ion-card-content {
+  padding-bottom: 0px;
+}
+
+ion-card-header {
+  padding-top: 10px;
+}
+  
+  .feedback-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .feedback-icon {
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  
+    &.negative { color: var(--ion-color-danger); }
+    &.neutral { color: var(--ion-color-medium); }
+    &.positive { color: var(--ion-color-success); }
+    &.excellent { color: var(--ion-color-tertiary); }
+  
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  

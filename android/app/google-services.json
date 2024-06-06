@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "971378351719",
+    "project_id": "development-35385",
+    "storage_bucket": "development-35385.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971378351719:android:c0da3c7cc78bade4997ec2",
+        "android_client_info": {
+          "package_name": "ai.offshift.memberapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971378351719-fa4tkgug7paoq6uj0ogb4tjpop2u44q8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBgXnTMH5sJ2QElLAEIK-20Mz-AaXeVLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971378351719-fa4tkgug7paoq6uj0ogb4tjpop2u44q8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
