@@ -13,6 +13,7 @@ import {
 } from "@capacitor/push-notifications";
 import { Platform } from '@ionic/angular';
 import * as LiveUpdates from '@capacitor/live-updates';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 // Register Swiper
 register();
@@ -35,9 +36,35 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(async () => {
 
       if(this.platform.is('capacitor')){
+        const notifs = await LocalNotifications.schedule({
+          notifications: [
+            {
+              title: 'Download completed 1',
+              body: 'Please restart you application 1',
+              id: 1,
+              schedule: { at: new Date(Date.now() + 1000 * 5) },
+              actionTypeId: '',
+              extra: null,
+            },
+          ],
+        });
+        console.log('notifs 1: ', notifs);
         const resultSync = await LiveUpdates.sync();
-        const resultReload =  await LiveUpdates.reload();
-        console.log('resultReload: ', resultReload);
+        if(resultSync.activeApplicationPathChanged){
+          const notifs = await LocalNotifications.schedule({
+            notifications: [
+              {
+                title: 'Download completed 2',
+                body: 'Please restart you application 2',
+                id: 1,
+                schedule: { at: new Date(Date.now() + 1000 * 5) },
+                actionTypeId: '',
+                extra: null,
+              },
+            ],
+          });
+          alert('notifs 2: '+ notifs);
+        }
         console.log('resultSync: ', resultSync);
         // Request permission to use push notifications
         // iOS will prompt user and return if they granted permission or not
