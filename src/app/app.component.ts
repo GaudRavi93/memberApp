@@ -36,36 +36,7 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(async () => {
 
       if(this.platform.is('capacitor')){
-        const notifs = await LocalNotifications.schedule({
-          notifications: [
-            {
-              title: 'Download completed 1',
-              body: 'Please restart you application 1',
-              id: 1,
-              schedule: { at: new Date(Date.now() + 1000 * 5) },
-              actionTypeId: '',
-              extra: null,
-            },
-          ],
-        });
-        console.log('notifs 1: ', notifs);
-        const resultSync = await LiveUpdates.sync();
-        if(resultSync.activeApplicationPathChanged){
-          const notifs = await LocalNotifications.schedule({
-            notifications: [
-              {
-                title: 'Download completed 2',
-                body: 'Please restart you application 2',
-                id: 1,
-                schedule: { at: new Date(Date.now() + 1000 * 5) },
-                actionTypeId: '',
-                extra: null,
-              },
-            ],
-          });
-          alert('notifs 2: '+ notifs);
-        }
-        console.log('resultSync: ', resultSync);
+        this.performLiveUpdate();
         // Request permission to use push notifications
         // iOS will prompt user and return if they granted permission or not
         // Android will just grant without prompting
@@ -107,6 +78,48 @@ export class AppComponent implements OnInit {
         );
       }
     });
+  }
+
+  async performLiveUpdate() {
+    try {
+      // Perform the live update sync
+      const resultSync = await LiveUpdates.sync();
+  
+      // Handle the result of the sync
+      if (resultSync.activeApplicationPathChanged) {
+        console.log('Application path has changed. A reload is required.');
+        // Optionally, reload the application
+        // window.location.reload();
+        await LocalNotifications.schedule({
+          notifications: [
+            {
+              title: 'A reload is required.',
+              body: 'Application path has changed',
+              id: 1,
+              schedule: { at: new Date(Date.now() + 1000 * 5) },
+              actionTypeId: '',
+              extra: null,
+            },
+          ],
+        });
+      } else {
+        await LocalNotifications.schedule({
+          notifications: [
+            {
+              title: 'No reload needed.',
+              body: 'Application path has not changed',
+              id: 1,
+              schedule: { at: new Date(Date.now() + 1000 * 5) },
+              actionTypeId: '',
+              extra: null,
+            },
+          ],
+        });
+        console.log('Application path has not changed. No reload needed.');
+      }
+    } catch (error) {
+      console.error('Live Update failed:', error);
+    }
   }
 
 }
