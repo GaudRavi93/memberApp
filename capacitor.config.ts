@@ -11,11 +11,11 @@ const config: CapacitorConfig = {
     LiveUpdates: {
       appId: 'a9f26d71',
       channel: 'Production',
-      autoUpdateMethod: 'background',
+      autoUpdateMethod: 'none',
       maxVersions: 3
     },
     LocalNotifications: {
-      smallIcon: "ic_stat_icon_config_sample",
+      smallIcon: "splash_icon",
       iconColor: "#488AFF",
       sound: "beep.wav",
     },
