@@ -91,11 +91,11 @@ export class AppComponent implements OnInit {
 
     try {
       // Perform the live update sync
-      await LiveUpdates.reload();
       const resultSync = await LiveUpdates.sync();
 
       // Handle the result of the sync
       if (resultSync.activeApplicationPathChanged) {
+        await LiveUpdates.reload();
         console.log('Application path has changed. A reload is required.');
         // Optionally, reload the application
         // window.location.reload();
