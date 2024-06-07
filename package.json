@@ -5,10 +5,14 @@
   "homepage": "https://offshift.ai/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ionic serve --configuration=$BUILD_ENV",
+    "start:prod": "ionic serve --configuration=production",
+    "start:dev": "ionic serve --configuration=development",
     "assets": "npx @capacitor/assets generate --ios --android",
     "android": "ionic build --proxy-config proxy.conf.json && npx cap sync android && npx cap open android",
-    "build": "ng build",
+    "build": "ionic build --configuration=$BUILD_ENV",
+    "build:prod": "ionic build --configuration=production",
+    "build:dev": "ionic build --configuration=development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
