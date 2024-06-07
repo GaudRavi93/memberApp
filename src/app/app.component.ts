@@ -85,6 +85,7 @@ export class AppComponent implements OnInit {
 
   async performLiveUpdate() {
       const resultSync = await LiveUpdates.sync();
+      console.log('resultSync: ', resultSync);
       // Handle the result of the sync
       if (resultSync.activeApplicationPathChanged) {
         // await LiveUpdates.reload();
