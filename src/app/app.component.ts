@@ -14,6 +14,7 @@ import {
 import { Platform } from '@ionic/angular';
 import * as LiveUpdates from '@capacitor/live-updates';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { NotificationService } from './services/notification.service';
 
 // Register Swiper
 register();
@@ -30,7 +31,8 @@ export class AppComponent implements OnInit {
     private chatClientService: ChatClientService,
     private chatService: ChatService,
     private auth: Auth,
-    private platform: Platform
+    private platform: Platform,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -82,98 +84,23 @@ export class AppComponent implements OnInit {
   }
 
   async performLiveUpdate() {
-    if (this.isSyncInProgress) {
-      console.log('Sync already in progress. Please wait.');
-      return;
-    }
-
-    this.isSyncInProgress = true;
-
-    try {
-      // Perform the live update sync
       const resultSync = await LiveUpdates.sync();
-
       // Handle the result of the sync
       if (resultSync.activeApplicationPathChanged) {
-        await LiveUpdates.reload();
-        console.log('Application path has changed. A reload is required.');
-        // Optionally, reload the application
-        // window.location.reload();
-        await LocalNotifications.schedule({
-          notifications: [
-            {
-              title: 'A reload is required.',
-              body: 'Application path has changed',
-              id: 1,
-              schedule: { at: new Date(Date.now() + 1000 * 5) },
-              actionTypeId: '',
-              extra: null,
-            },
-          ],
-        });
+        // await LiveUpdates.reload();
+        this.notificationService.scheduleNotification(
+          "Application is updated.",
+          "Please restart the application to apply the latest updates.",
+          new Date(Date.now() + 1000 * 5)
+        );
+        console.log('reload needed.');
       } else {
-        await LocalNotifications.schedule({
-          notifications: [
-            {
-              title: 'No reload needed.',
-              body: 'Application path has not changed',
-              id: 1,
-              schedule: { at: new Date(Date.now() + 1000 * 5) },
-              actionTypeId: '',
-              extra: null,
-            },
-          ],
-        });
+        this.notificationService.scheduleNotification(
+          "No reload needed.",
+          "Application path has not changed",
+          new Date(Date.now() + 1000 * 5)
+        );
         console.log('Application path has not changed. No reload needed.');
       }
-    } catch (error) {
-      console.error('Live Update failed:', error);
-    } finally {
-      this.isSyncInProgress = false;
-    }
   }
-
-  // async performLiveUpdate() {
-  //   try {
-  //     LiveUpdates.
-  //     // Perform the live update sync
-  //     const resultSync = await LiveUpdates.sync();
-  
-  //     // Handle the result of the sync
-  //     if (resultSync.activeApplicationPathChanged) {
-  //       console.log('Application path has changed. A reload is required.');
-  //       // Optionally, reload the application
-  //       // window.location.reload();
-  //       await LocalNotifications.schedule({
-  //         notifications: [
-  //           {
-  //             title: 'A reload is required.',
-  //             body: 'Application path has changed',
-  //             id: 1,
-  //             schedule: { at: new Date(Date.now() + 1000 * 5) },
-  //             actionTypeId: '',
-  //             extra: null,
-  //           },
-  //         ],
-  //       });
-  //     } else {
-  //       await LocalNotifications.schedule({
-  //         notifications: [
-  //           {
-  //             title: 'No reload needed.',
-  //             body: 'Application path has not changed',
-  //             id: 1,
-  //             schedule: { at: new Date(Date.now() + 1000 * 5) },
-  //             actionTypeId: '',
-  //             extra: null,
-  //           },
-  //         ],
-  //       });
-  //       console.log('Application path has not changed. No reload needed.');
-  //     }
-  //   } catch (error) {
-  //     console.error('Live Update failed:', error);
-  //   }
-  // }
-
 }

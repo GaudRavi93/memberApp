@@ -13,12 +13,7 @@ const config: CapacitorConfig = {
       channel: 'Production',
       autoUpdateMethod: 'none',
       maxVersions: 3
-    },
-    LocalNotifications: {
-      smallIcon: "splash_icon",
-      iconColor: "#488AFF",
-      sound: "beep.wav",
-    },
+    }
   }
 };
 
